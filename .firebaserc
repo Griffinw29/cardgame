@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "card-37deb": {
+      "hosting": {
+        "card-game": [
+          "card-37deb"
+        ]
+      }
+    }
+  }
+}
