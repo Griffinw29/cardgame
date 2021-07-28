@@ -16,12 +16,18 @@ import { StartComponent } from './game/start/start.component';
 import { PlayComponent } from './game/play/play.component';
 import { MaterialModule } from './shared/material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { CardComponent } from './game/play/card/card.component';
+import { PlayerComponent } from './game/play/player/player.component';
+import { CommunityComponent } from './game/play/community/community.component';
 @NgModule({
   declarations: [
     AppComponent,
     IntroComponent,
     StartComponent,
-    PlayComponent
+    PlayComponent,
+    CardComponent,
+    PlayerComponent,
+    CommunityComponent
   ],
   imports: [
     BrowserModule,
