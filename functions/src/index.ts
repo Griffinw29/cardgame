@@ -5,7 +5,7 @@ const corsHandler = cors({origin: true});
 // // https://firebase.google.com/docs/functions/typescript
 //
 export const helloWorld = functions.https.onRequest((request, response) => {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  // this evades cors issues but should likely be done differently
   corsHandler(request, response, () => {
     functions.logger.info("Hello logs!", {structuredData: true});
     response.send({data: "Hello from Firebase!"});
