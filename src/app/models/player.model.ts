@@ -1,3 +1,5 @@
+import { Card } from "./card.model";
+
 export interface Player {
     id: string;  //match currently logged in player by this
     name: string;
@@ -7,16 +9,7 @@ export interface Player {
     currentlyActive: boolean;
 }
 
-export interface Card {
-    suit: 'D' | 'C' | 'S' | 'H';
-    value: number | 'T' | 'J' | 'K' | 'Q';
-}
 
-export interface Game {
-  id: string;
-  players: Player[];
-  active: boolean;
-  pot: number;
-  community: Card[]
-}
+
+
 
