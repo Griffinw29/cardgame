@@ -12,7 +12,7 @@ export class PlayComponent implements OnInit {
   data$: Observable<any>;
 
   constructor(private db: AngularFirestore, private fns: AngularFireFunctions) {
-    const things = db.collection('things').valueChanges();
+    const things = db.collection('game').doc('UeBXOQTPVdMz23LSUYTX').valueChanges();
     things.subscribe(console.log);
 
     const callable = fns.httpsCallable('helloWorld');
