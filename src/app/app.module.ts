@@ -10,18 +10,24 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule, PERSISTENCE, USE_DEVICE_LANGUAGE } from '@angular/fire/auth';
 import { SETTINGS as AUTH_SETTINGS } from '@angular/fire/auth';
 import { UserModule } from './user/user.module';
-import { SharedModule } from './shared/shared.module';
-import { HomePageComponent } from './home-page/home-page.component';
+import { IntroComponent } from './game/intro/intro.component';
+import { StartComponent } from './game/start/start.component';
+import { PlayComponent } from './game/play/play.component';
+import { MaterialModule } from './shared/material-module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    IntroComponent,
+    StartComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
+    MaterialModule,
+    FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFireAuthModule,
