@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-play',
@@ -7,13 +9,18 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./play.component.css']
 })
 export class PlayComponent implements OnInit {
+  data$: Observable<any>;
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private fns: AngularFireFunctions) {
     const things = db.collection('things').valueChanges();
     things.subscribe(console.log);
+
+    const callable = fns.httpsCallable('helloWorld');
+    this.data$ = callable({ name: 'some-data' });
 }
 
   ngOnInit(): void {
+    this.data$.subscribe(e => console.log(e));
   }
 
 }

@@ -8,6 +8,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule, PERSISTENCE, USE_DEVICE_LANGUAGE } from '@angular/fire/auth';
+import { AngularFireFunctionsModule, ORIGIN, REGION } from '@angular/fire/functions';
 import { SETTINGS as AUTH_SETTINGS } from '@angular/fire/auth';
 import { UserModule } from './user/user.module';
 import { IntroComponent } from './game/intro/intro.component';
@@ -32,12 +33,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AngularFireAnalyticsModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireFunctionsModule,
     UserModule
   ],
   providers: [
     { provide: AUTH_SETTINGS, useValue: { appVerificationDisabledForTesting: true } },
     { provide: USE_DEVICE_LANGUAGE, useValue: true },
-    { provide: PERSISTENCE, useValue: 'session' }
+    { provide: PERSISTENCE, useValue: 'session' },
+    { provide: REGION, useValue: 'us-central1' },
   ],
   bootstrap: [AppComponent]
 })
