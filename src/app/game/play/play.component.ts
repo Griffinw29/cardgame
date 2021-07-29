@@ -12,7 +12,7 @@ import { Game } from 'src/app/models/game.model';
 export class PlayComponent implements OnInit {
   data$: Observable<any>;
   game$: Observable<any> = this.db.collection('game').doc('UeBXOQTPVdMz23LSUYTX').valueChanges();
-  game: Game;
+  game: any;
   constructor(private db: AngularFirestore, private fns: AngularFireFunctions) {
 
     this.game$.subscribe(e => this.game = e);
