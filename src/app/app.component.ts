@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -9,8 +10,6 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'card-game';
-  items: Observable<any[]>;
-  constructor(firestore: AngularFirestore) {
-    this.items = firestore.collection('items').valueChanges();
+  constructor(private afAuth: AngularFireAuth ) {
   }
 }

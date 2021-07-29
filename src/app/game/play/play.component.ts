@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Observable } from 'rxjs';
+import { Game } from 'src/app/models/game.model';
 
 @Component({
   selector: 'app-play',
@@ -10,17 +11,20 @@ import { Observable } from 'rxjs';
 })
 export class PlayComponent implements OnInit {
   data$: Observable<any>;
-
+  game$: Observable<any> = this.db.collection('game').doc('UeBXOQTPVdMz23LSUYTX').valueChanges();
+  game: Game;
   constructor(private db: AngularFirestore, private fns: AngularFireFunctions) {
-    const things = db.collection('game').doc('UeBXOQTPVdMz23LSUYTX').valueChanges();
-    things.subscribe(console.log);
+
+    this.game$.subscribe(e => this.game = e);
 
     const callable = fns.httpsCallable('helloWorld');
     this.data$ = callable({ name: 'some-data' });
 }
 
   ngOnInit(): void {
+
     this.data$.subscribe(e => console.log(e));
+
   }
 
 }
