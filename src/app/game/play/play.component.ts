@@ -13,7 +13,13 @@ import { Game } from 'src/app/models/game.model';
 export class PlayComponent implements OnInit {
   // data$: Observable<any>;
   game$: Observable<any> = this.db.collection('game').doc('UeBXOQTPVdMz23LSUYTX').valueChanges();
-  game: any;
+  game: Game =  {
+    active: false,
+    community: [],
+    id: '',
+    players: [],
+    pot: 0
+  };
 
   destroy$: Subject<void> = new Subject<void>();
   constructor(private db: AngularFirestore, private fns: AngularFireFunctions) {

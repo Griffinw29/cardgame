@@ -1,2 +1,6 @@
 <p>play works!</p>
 <button mat-raised-button routerLink="/start">Leave Game</button>
+<ng-container *ngFor="let player of game.players">
+  <app-player [player]="player"></app-player>
+</ng-container>
+<app-community  [game]="game"></app-community>
