@@ -14,7 +14,7 @@ export class IntroComponent implements OnInit {
 
   clicked$: Subscription;
 
-  @HostListener('mouseup', ['$event'])
+  @HostListener('mousedown', ['$event'])
   @HostListener('touchend', ['$event'])
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
