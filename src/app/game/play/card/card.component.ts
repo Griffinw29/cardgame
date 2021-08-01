@@ -10,13 +10,15 @@ import { Card } from 'src/app/models/card.model';
 export class CardComponent implements OnInit {
   @Input()
   cards: Card[] = [];
-  constructor() { }
+  constructor() {
+    console.log(this.cards);
+  }
 
   ngOnInit(): void {
   }
 
   cardPath(index: number): string {
-    return `/assets/card/${this.cards[index].suit}${this.cards[index].value}.svg`
+    return `/assets/cards/${this.cards[index].value.toString().toUpperCase()}${this.cards[index].suit.toString().toUpperCase()}.svg`
   }
 
 }
