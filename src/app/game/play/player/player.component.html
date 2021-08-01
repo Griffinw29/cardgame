@@ -1,1 +1,7 @@
-<app-card [cards]="player.cards"></app-card>
+<div class="playArea">
+  <div><strong>Player: </strong> {{ player.name }}</div>
+  <div><strong>Bank: </strong>{{ player.money }}</div>
+  <div>
+    <app-card [cards]="player.cards"></app-card>
+  </div>
+</div>

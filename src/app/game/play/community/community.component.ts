@@ -4,7 +4,7 @@ import { Game } from 'src/app/models/game.model';
 @Component({
   selector: 'app-community',
   templateUrl: './community.component.html',
-  styleUrls: ['./community.component.css']
+  styleUrls: ['./community.component.css'],
 })
 export class CommunityComponent implements OnInit {
   @Input()
@@ -13,11 +13,9 @@ export class CommunityComponent implements OnInit {
     community: [],
     id: '',
     players: [],
-    pot: 0
+    pot: 0,
   };
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

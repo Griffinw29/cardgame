@@ -1,0 +1,25 @@
+.communityCards {
+  margin-bottom: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.comCard {
+  flex: 1 1 150px;
+}
+
+.riverCard {
+  margin-left: 65px;
+}
+
+.title {
+  display: flex;
+  text-align: center;
+}
+
+.potDiv {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+}

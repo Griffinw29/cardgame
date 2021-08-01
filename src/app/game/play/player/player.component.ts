@@ -6,21 +6,21 @@ import { Player } from 'src/app/models/player.model';
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
-  styleUrls: ['./player.component.css']
+  styles: [
+    ' margin-bottom: auto; display: flex; flex-wrap: wrap; justify-content: end;',
+  ],
 })
 export class PlayerComponent implements OnInit {
-@Input()
-player: Player = {
-  id: '',
-  bet: 0,
-  cards: [],
-  currentlyActive: false,
-  money: 0,
-  name: 'unnamed'
-};
-  constructor() { }
+  @Input()
+  player: Player = {
+    id: '',
+    bet: 0,
+    cards: [],
+    currentlyActive: false,
+    money: 0,
+    name: 'unnamed',
+  };
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
