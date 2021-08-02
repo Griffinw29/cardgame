@@ -10,17 +10,29 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'card-game';
+  destroy$:
   constructor(private afAuth: AngularFireAuth ) {
-    afAuth.onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        var uid = user.uid;
-        // ...
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
+
+  }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    // this.afAuth.onAuthStateChanged((user: { uid: any; }) => {
+    //   if (user) {
+    //     // User is signed in, see docs for a list of available properties
+    //     // https://firebase.google.com/docs/reference/js/firebase.User
+    //     var uid = user.uid;
+    //     // ...
+    //   } else {
+    //     // User is signed out
+    //     // ...
+    //   }
+    // });
+  }
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+
   }
 }

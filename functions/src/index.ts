@@ -19,7 +19,7 @@ export const handStrength = functions.https.onRequest((request, response) => {
     response.send({data: "Hello from Firebase!"});
   });
 });
-//https://dev.to/miketalbot/real-world-javascript-map-reduce-solving-the-poker-hand-problem-3eie
+// https://dev.to/miketalbot/real-world-javascript-map-reduce-solving-the-poker-hand-problem-3eie
 export const checkHand = functions.https.onRequest((request, response): any => {
   // this evades cors issues but should likely be done differently
   // eslint-disable-next-line @typescript-eslint/no-empty-function
