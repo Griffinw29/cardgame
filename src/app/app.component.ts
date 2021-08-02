@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'card-game';
-  destroy$:
   constructor(private afAuth: AngularFireAuth ) {
 
   }
