@@ -42,4 +42,9 @@ export class PlayComponent implements OnInit {
     //Add 'implements OnDestroy' to the class.
   }
 
+  addGame(data: any) {
+    this.db.collection('game').add(data);
+  }
+
+
 }
