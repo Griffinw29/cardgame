@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Observable, Subject } from 'rxjs';
@@ -22,7 +23,7 @@ export class PlayComponent implements OnInit {
   };
 
   destroy$: Subject<void> = new Subject<void>();
-  constructor(private db: AngularFirestore, private fns: AngularFireFunctions) {
+  constructor(private db: AngularFirestore, private fns: AngularFireFunctions, private afAuth: AngularFireAuth) {
 
     this.game$.pipe(takeUntil(this.destroy$)).subscribe(e => this.game = e);
 
@@ -43,7 +44,10 @@ export class PlayComponent implements OnInit {
   }
 
   addGame(data: any) {
-    this.db.collection('game').add(data);
+    this.afAuth.authState.subscribe( u => {
+      this.db.collection('game').add({email: u?.email || 'unknown', data});
+    });
+
   }
 
 
