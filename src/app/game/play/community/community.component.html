@@ -1,12 +1,28 @@
-<div class="communityTitle">
-  <div class="communityCards">
-    <app-card class="commCard"></app-card>
-    <app-card class="commCard"></app-card>
-    <app-card class="commCard"></app-card>
+<ng-container *ngIf="game.community.length">
+  <app-card
+    *ngIf="game.round < 3; else boink"
+    [cards]="[game.community[0]]"
+  ></app-card>
+  <app-card
+    *ngIf="game.round < 3; else boink"
+    [cards]="[game.community[1]]"
+  ></app-card>
+  <app-card
+    *ngIf="game.round < 3; else boink"
+    [cards]="[game.community[2]]"
+  ></app-card>
+  <app-card
+    *ngIf="game.round > 1; else boink"
+    [cards]="[game.community[3]]"
+  ></app-card>
+  <app-card
+    *ngIf="game.round > 2; else boink"
+    [cards]="[game.community[4]]"
+  ></app-card>
+</ng-container>
 
-    <div class="riverCard">
-      <app-card class="river"></app-card>
-    </div>
-  </div>
-  <div class="potDiv">Pot: {{ game.pot }}</div>
-</div>
+<div class="potDiv">Pot: {{ game.pot }}</div>
+
+<ng-template #boink
+  ><app-card [cards]="[{ suit: 'B', value: 1 }]"></app-card
+></ng-template>

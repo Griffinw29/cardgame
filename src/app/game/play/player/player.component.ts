@@ -1,7 +1,7 @@
-import { NULL_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit } from '@angular/core';
 import { Game } from 'src/app/models/game.model';
 import { Player } from 'src/app/models/player.model';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-player',
@@ -9,6 +9,7 @@ import { Player } from 'src/app/models/player.model';
   styles: [
     ' margin-bottom: auto; display: flex; flex-wrap: wrap; justify-content: end;',
   ],
+  providers: [GameService],
 })
 export class PlayerComponent implements OnInit {
   @Input()
@@ -20,7 +21,7 @@ export class PlayerComponent implements OnInit {
     money: 0,
     name: 'unnamed',
   };
-  constructor() {}
+  constructor(private gameService: GameService) {}
 
   ngOnInit(): void {}
 }
