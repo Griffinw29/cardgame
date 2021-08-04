@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Game } from 'src/app/models/game.model';
 import { Player } from 'src/app/models/player.model';
 import { GameService } from '../../services/game.service';
+import { Card } from 'src/app/models/card.model';
 
 @Component({
   selector: 'app-player',
@@ -9,7 +10,6 @@ import { GameService } from '../../services/game.service';
   styles: [
     ' margin-bottom: auto; display: flex; flex-wrap: wrap; justify-content: end;',
   ],
-  providers: [GameService],
 })
 export class PlayerComponent implements OnInit {
   @Input()
@@ -21,7 +21,7 @@ export class PlayerComponent implements OnInit {
     money: 0,
     name: 'unnamed',
   };
-  constructor(private gameService: GameService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }

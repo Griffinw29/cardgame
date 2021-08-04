@@ -17,13 +17,9 @@ import { GameService } from '../../services/game.service';
 export class CardComponent implements OnInit {
   @Input()
   cards: Card[] = [];
-  constructor(public gameService: GameService) {
-    console.log(gameService.deal(2, this.gameService.deck));
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-    this.gameService.deal(2, this.gameService.deck);
-  }
+  ngOnInit(): void {}
 
   cardPath(index: number): string {
     return `/assets/cards/${this.cards[index].value

@@ -11,15 +11,13 @@ import { GameService } from '../services/game.service';
   selector: 'app-play',
   templateUrl: './play.component.html',
   styleUrls: ['./play.component.css'],
-  providers: [GameService],
 })
 export class PlayComponent implements OnInit {
   // data$: Observable<any>;
-  @Input() card: Card[] = [];
-  game$: Observable<any> = this.db
-    .collection('game')
-    .doc('UeBXOQTPVdMz23LSUYTX')
-    .valueChanges();
+  // game$: Observable<any> = this.db
+  //   .collection('game')
+  //   .doc('UeBXOQTPVdMz23LSUYTX')
+  //   .valueChanges();
   game: Game = {
     active: false,
     community: [],
@@ -31,8 +29,8 @@ export class PlayComponent implements OnInit {
 
   destroy$: Subject<void> = new Subject<void>();
   constructor(
-    private db: AngularFirestore,
-    private fns: AngularFireFunctions,
+    // private db: AngularFirestore,
+    // private fns: AngularFireFunctions,
     private gameService: GameService
   ) {
     // this.game$.pipe(takeUntil(this.destroy$)).subscribe((e) => (this.game = e));
@@ -42,6 +40,7 @@ export class PlayComponent implements OnInit {
 
   ngOnInit(): void {
     this.game = this.gameService.newGame();
+    console.log(this.game.players);
     // this.data$.subscribe(e => console.log(e));
   }
 

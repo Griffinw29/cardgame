@@ -7,9 +7,10 @@ import { GameService } from '../../services/game.service';
   selector: 'app-community',
   templateUrl: './community.component.html',
   styleUrls: ['./community.component.css'],
-  providers: [GameService],
 })
 export class CommunityComponent implements OnInit {
+  @Input()
+  cards: Card[] = [];
   @Input()
   game: Game = {
     active: false,
@@ -19,7 +20,7 @@ export class CommunityComponent implements OnInit {
     pot: 0,
     round: 0,
   };
-  constructor(private gameService: GameService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }

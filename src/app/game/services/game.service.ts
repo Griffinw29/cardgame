@@ -1,7 +1,9 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Card } from 'src/app/models/card.model';
 import { Game } from 'src/app/models/game.model';
 import { Player } from 'src/app/models/player.model';
+import { PlayerComponent } from '../play/player/player.component';
 
 @Injectable({
   providedIn: 'root',
@@ -255,7 +257,7 @@ export class GameService {
 
   deal(cards: number, deck: Card[] = []): Card[] {
     let dealtCards: Card[] = [];
-    for (let i = 0; 1 > cards; i++) {
+    for (let i = 0; i < cards; i++) {
       dealtCards.push(deck.shift()!);
     }
     return dealtCards;
@@ -283,5 +285,13 @@ export class GameService {
       });
     }
     return newGame;
+  }
+
+  bet() {
+    let minBet = 5;
+    if (this.newGame().pot === 0) {
+      alert('Place your bet!');
+      this.newGame().pot += minBet;
+    }
   }
 }
