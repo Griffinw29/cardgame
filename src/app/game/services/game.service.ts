@@ -295,10 +295,10 @@ export class GameService {
   }
 
   addWinnings(h1: string, h2: string) {
-    if (this.getHandDetails(h1) > this.getHandDetails(h2)) {
-      this.newGame().players[0].money = +this.newGame().pot;
-    } else if (this.getHandDetails(h1) > this.getHandDetails(h2)) {
-      this.newGame().players[1].money = +this.newGame().pot;
+    if (this.getHandDetails(h1).rank > this.getHandDetails(h2).rank) {
+      this.newGame().players[0].money += this.newGame().pot;
+    } else if (this.getHandDetails(h1).rank > this.getHandDetails(h2).rank) {
+      this.newGame().players[1].money += this.newGame().pot;
     } else {
     }
   }
