@@ -283,15 +283,21 @@ export class GameService {
         money: 100,
         cards: this.deal(2, shuffleDeck),
         currentlyActive: true,
+        check: false,
       });
     }
     return newGame;
   }
 
   raise() {
-    let minRaise = 5;
     this.newGame().pot += 5;
     this.newGame().players[0].money -= 5;
+  }
+
+  check() {
+    if (this.newGame().players[0].bet !== this.newGame().players[1].bet) {
+      this.newGame().players[0].bet = this.newGame().players[1].bet;
+    }
   }
 
   addWinnings(h1: string, h2: string) {
@@ -300,6 +306,24 @@ export class GameService {
     } else if (this.getHandDetails(h1).rank > this.getHandDetails(h2).rank) {
       this.newGame().players[1].money += this.newGame().pot;
     } else {
+    }
+  }
+
+  nextRound() {
+    for (let i = 0; i < 3; i++) {
+      if (
+        this.newGame().round === 0 &&
+        this.newGame().players[0].check == false &&
+        this.newGame().players[1].check == false
+      ) {
+        alert('Round One, Place your bet!');
+        this.newGame().round += 1;
+      } else if (
+        this.newGame().round == 1 &&
+        this.newGame().players[0].check === true &&
+        this.newGame().players[1].check === true
+      ) {
+      }
     }
   }
 }

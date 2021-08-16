@@ -20,6 +20,7 @@ export class PlayerComponent implements OnInit {
     currentlyActive: false,
     money: 0,
     name: 'unnamed',
+    check: false,
   };
   constructor() {}
 
